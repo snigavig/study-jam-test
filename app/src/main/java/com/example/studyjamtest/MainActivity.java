@@ -24,9 +24,6 @@ import android.widget.TextView;
  */
 public class MainActivity extends Activity {
 
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
     private PrefsManager mPrefsManager = null;
 
     // UI references.
@@ -125,7 +122,6 @@ public class MainActivity extends Activity {
             mPrefsManager.setLogin(login);
             mPrefsManager.setPassword(password);
 
-            // Execute some code after 2 seconds have passed
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
