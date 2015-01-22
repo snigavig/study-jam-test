@@ -3,7 +3,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_login">Login</string>
-    <string name="prompt_password">Password (optional)</string>
+    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_login">This login is invalid</string>
@@ -14,5 +14,5 @@
     <string name="app_name">Study Jam Test</string>
     <string name="title_activity_user">UserActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="is_running">IS_RUNNING</string>
+    <string name="sign_out">Sign out</string>
 </resources>

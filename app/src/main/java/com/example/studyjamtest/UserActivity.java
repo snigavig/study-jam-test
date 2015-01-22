@@ -1,10 +1,12 @@
 package com.example.studyjamtest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 
@@ -42,5 +44,15 @@ public class UserActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSignOutButtonClick(View view) {
+        mPrefsManager.setIsLogin(false);
+        mPrefsManager.setLogin(null);
+        mPrefsManager.setPassword(null);
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

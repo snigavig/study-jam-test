@@ -12,7 +12,6 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,7 +29,7 @@ public class MainActivity extends Activity {
     private PrefsManager mPrefsManager = null;
 
     // UI references.
-    private AutoCompleteTextView mLoginView;
+    private EditText mLoginView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -42,8 +41,14 @@ public class MainActivity extends Activity {
 
         mPrefsManager = new PrefsManager(this);
 
+        if (mPrefsManager.getIsLogin()) {
+            Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         // Set up the login form.
-        mLoginView = (AutoCompleteTextView) findViewById(R.id.email);
+        mLoginView = (EditText) findViewById(R.id.login);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -196,9 +201,9 @@ public class MainActivity extends Activity {
             showProgress(false);
 
             if (success) {
-                finish();
                 Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(intent);
+                finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

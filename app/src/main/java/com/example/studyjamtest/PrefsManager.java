@@ -16,6 +16,7 @@ public class PrefsManager {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
     }
+
     public void setIsLogin(Boolean value) {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(IS_LOGIN_KEY, value);
@@ -32,6 +33,10 @@ public class PrefsManager {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(PASSWORD_KEY, value);
         editor.apply();
+    }
+
+    public Boolean getIsLogin() {
+        return prefs.getBoolean(IS_LOGIN_KEY, false);
     }
 
     public String getLogin() {
