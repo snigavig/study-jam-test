@@ -5,14 +5,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class UserActivity extends Activity {
+
+    private PrefsManager mPrefsManager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        mPrefsManager = new PrefsManager(this);
+        TextView loginTextView = (TextView) findViewById(R.id.helloTextView);
+        loginTextView.setText("Hello, " + mPrefsManager.getLogin());
     }
 
 
